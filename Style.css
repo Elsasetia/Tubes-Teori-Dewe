@@ -1,0 +1,118 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* HEADER */
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 40px;
+    background: #0b1a41;
+    color: white;
+    align-items: center;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+nav a, nav button {
+    margin-left: 15px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.cartBtn {
+    padding: 5px 10px;
+    border-radius: 6px;
+    background: white;
+    color: #0b1a41;
+    font-weight: bold;
+}
+
+/* HERO */
+.hero {
+    padding: 120px 40px;
+    background: linear-gradient(#0b1a41, #10265f);
+    color: white;
+    text-align: center;
+}
+
+/* KATEGORI */
+.kategori {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.kategori-buttons button {
+    margin: 10px;
+    padding: 12px 25px;
+    border-radius: 8px;
+    border: none;
+    background: #0b1a41;
+    color: white;
+    cursor: pointer;
+}
+
+/* PRODUK */
+.produk-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    padding: 20px;
+}
+
+.produk-card {
+    width: 250px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+}
+
+.produk-card button {
+    margin-top: 10px;
+    padding: 10px;
+    width: 100%;
+    background: #0b1a41;
+    color: white;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+}
+
+/* POPUP LOGIN */
+.popup {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.7);
+}
+
+.popup-content {
+    background: white;
+    padding: 25px;
+    width: 300px;
+    margin: 12% auto;
+    border-radius: 10px;
+}
+
+.popup input {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+}
+
+.closeBtn {
+    float: right;
+    background: red;
+    color: white;
+    border-radius: 5px;
+    padding: 5px;
+}

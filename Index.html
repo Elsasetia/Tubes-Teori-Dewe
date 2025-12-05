@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mitra Copierindo</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="logo">Mitra Copierindo</div>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#produk">Produk</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+            <button id="btnLogin">Login</button>
+            <button id="btnCart" class="cartBtn">🛒 <span id="cartCount">0</span></button>
+        </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <h1>Selamat Datang di Mitra Copierindo</h1>
+        <p>Pusat Mesin Fotocopy & Percetakan Terpercaya</p>
+    </section>
+
+    <!-- KATEGORI BUTTON -->
+    <section id="kategori" class="kategori">
+        <h2>Pilih Kategori Mesin</h2>
+        <div class="kategori-buttons">
+            <button class="btnKategori" data-kategori="fotocopy">Mesin Fotocopy</button>
+            <button class="btnKategori" data-kategori="printer">Printer</button>
+            <button class="btnKategori" data-kategori="percetakan">Mesin Percetakan</button>
+        </div>
+    </section>
+
+    <!-- PRODUK LIST -->
+    <section id="produk" class="produk">
+        <h2>Daftar Produk</h2>
+        <div id="produkList" class="produk-container"></div>
+    </section>
+
+    <!-- LOGIN POPUP -->
+    <div id="loginPopup" class="popup">
+        <div class="popup-content">
+            <h3>Login / Register</h3>
+            <input id="loginPhone" type="text" placeholder="Nomor Telepon">
+            <input id="loginPass" type="password" placeholder="Password">
+            <button id="loginSubmit">Login</button>
+            <button id="closePopup" class="closeBtn">X</button>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2025 Mitra Copierindo. All Rights Reserved.</p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
