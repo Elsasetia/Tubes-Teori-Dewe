@@ -156,7 +156,7 @@ kategoriBtn.forEach(btn => {
 
 
 // ==========================
-// TAMPILKAN PRODUK (GRID 4 ATAS 3 BAWAH)
+// TAMPILKAN PRODUK
 // ==========================
 function tampilkanProduk(data) {
   produkList.innerHTML = "";
@@ -236,52 +236,57 @@ registerBtn.onclick = () => {
 };
 
 
-// SUBMIT LOGIN / REGISTER
+// ==========================
+// SUBMIT LOGIN & REGISTER (SUDAH FIX)
+// ==========================
 loginSubmit.onclick = () => {
-  const phone = document.getElementById("loginPhone").value.trim();
+  const username = document.getElementById("loginName").value.trim();
   const pass = document.getElementById("loginPass").value.trim();
   const mode = loginSubmit.dataset.mode;
 
-  if (!phone || !pass) {
-    alert("Nomor dan password wajib diisi!");
+  if (!username || !pass) {
+    alert("Username dan password wajib diisi!");
     return;
   }
 
   let users = JSON.parse(localStorage.getItem("users") || "{}");
 
+  // REGISTER
   if (mode === "register") {
-    if (users[phone]) {
-      alert("Nomor ini sudah terdaftar!");
+    if (users[username]) {
+      alert("Username ini sudah terdaftar!");
       return;
     }
 
-    users[phone] = { phone, pass };
+    users[username] = { username, pass };
     localStorage.setItem("users", JSON.stringify(users));
 
-    alert("Registrasi berhasil, silakan login.");
+    alert("Registrasi berhasil! Silakan login.");
     showPopup("login");
   }
 
+  // LOGIN
   if (mode === "login") {
-    if (!users[phone] || users[phone].pass !== pass) {
-      alert("Nomor atau password salah.");
+    if (!users[username] || users[username].pass !== pass) {
+      alert("Username atau password salah.");
       return;
     }
 
-    localStorage.setItem("auth", JSON.stringify({ phone }));
-
+    localStorage.setItem("auth", JSON.stringify({ username }));
     loginPopup.style.display = "none";
     updateLoginUI();
   }
 };
 
 
-// UPDATE UI SETELAH LOGIN / LOGOUT
+// ==========================
+// UPDATE UI SETELAH LOGIN
+// ==========================
 function updateLoginUI() {
   const auth = JSON.parse(localStorage.getItem("auth"));
 
   if (auth) {
-    btnLogin.innerText = `Logout (${auth.phone})`;
+    btnLogin.innerText = `Logout (${auth.username})`;
     btnLogin.onclick = () => {
       localStorage.removeItem("auth");
       location.reload();
