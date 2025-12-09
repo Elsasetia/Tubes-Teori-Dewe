@@ -235,7 +235,7 @@ function tampilkanProduk(data) {
   data.forEach(p => {
     produkList.innerHTML += `
       <div class="produk-card">
-        <img src="${p.img}" class="produk-img" onclick='openDetail(${JSON.stringify(p)})'>
+        <img src="${p.img}" class="produk-img" onclick='openDetail(${JSON.stringify(p).replace(/"/g, "&quot;")})'>
         <h3>${p.name}</h3>
         <p>Harga: Rp ${p.price.toLocaleString()}</p>
         <p>Tahun: ${p.year}</p>
@@ -243,6 +243,52 @@ function tampilkanProduk(data) {
     `;
   });
 }
+
+function tampilkanProduk(data) {
+  produkList.innerHTML = "";
+
+  data.forEach(p => {
+    produkList.innerHTML += `
+      <div class="produk-card">
+        <img src="${p.img}" class="produk-img" onclick='openDetail(${JSON.stringify(p).replace(/"/g, "&quot;")})'>
+        <h3>${p.name}</h3>
+        <p>Harga: Rp ${p.price.toLocaleString()}</p>
+        <p>Tahun: ${p.year}</p>
+      </div>
+    `;
+  });
+}
+function tampilkanProduk(data) {
+  produkList.innerHTML = "";
+
+  data.forEach(p => {
+    produkList.innerHTML += `
+      <div class="produk-card">
+        <img src="${p.img}" class="produk-img" onclick='openDetail(${JSON.stringify(p).replace(/"/g, "&quot;")})'>
+        <h3>${p.name}</h3>
+        <p>Harga: Rp ${p.price.toLocaleString()}</p>
+        <p>Tahun: ${p.year}</p>
+      </div>
+    `;
+  });
+}
+
+function tampilkanProduk(data) {
+  produkList.innerHTML = "";
+
+  data.forEach(p => {
+    produkList.innerHTML += `
+      <div class="produk-card">
+        <img src="${p.img}" class="produk-img" onclick='openDetail(${JSON.stringify(p).replace(/"/g, "&quot;")})'>
+        <h3>${p.name}</h3>
+        <p>Harga: Rp ${p.price.toLocaleString()}</p>
+        <p>Tahun: ${p.year}</p>
+      </div>
+    `;
+  });
+}
+
+
 
 kategoriBtn.forEach(btn => {
   btn.addEventListener("click", () => {
@@ -361,7 +407,7 @@ function updateLoginUI() {
   const auth = JSON.parse(localStorage.getItem("auth"));
 
   if (auth) {
-    btnLogin.innerText = Logout (${auth.phone});
+    btnLogin.innerText = `Logout (${auth.phone})`;
     btnLogin.onclick = () => {
       localStorage.removeItem("auth");
       location.reload();
