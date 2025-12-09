@@ -423,5 +423,19 @@ function openContact() {
 function closeContact() {
     document.getElementById("contactPopup").style.display = "none";
 }
+let slideIndex = 0;
+const slides = document.querySelectorAll('.slide');
+
+document.querySelector('.next').onclick = () => changeSlide(1);
+document.querySelector('.prev').onclick = () => changeSlide(-1);
+
+function changeSlide(n) {
+    slides[slideIndex].classList.remove('active');
+    slideIndex = (slideIndex + n + slides.length) % slides.length;
+    slides[slideIndex].classList.add('active');
+}
+
+// AUTO PLAY
+setInterval(() => changeSlide(1), 4000);
 
 updateLoginUI();
