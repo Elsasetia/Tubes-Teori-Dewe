@@ -3,6 +3,7 @@ body {
     font-family: Arial, sans-serif;
 }
 
+/* HEADER */
 header {
     display: flex;
     justify-content: space-between;
@@ -42,6 +43,7 @@ nav a, nav button {
     font-weight: bold;
 }
 
+/* HERO */
 .hero {
     padding: 120px 40px;
     background: linear-gradient(#0b1a41, #10265f);
@@ -49,6 +51,7 @@ nav a, nav button {
     text-align: center;
 }
 
+/* KATEGORI */
 .kategori {
     text-align: center;
     padding: 40px 20px;
@@ -64,11 +67,13 @@ nav a, nav button {
     cursor: pointer;
 }
 
+/* PRODUK WRAPPER (BIAR TENGAH DAN LEBARNYA NORMAL) */
 .produk-wrapper {
     max-width: 1200px;
     margin: 0 auto;
 }
 
+/* PRODUK GRID 4 ATAS 3 BAWAH */
 .produk-container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -125,6 +130,7 @@ nav a, nav button {
     cursor: pointer;
 }
 
+/* POPUP UMUM */
 .popup {
     display: none;
     position: fixed;
@@ -135,6 +141,7 @@ nav a, nav button {
     z-index: 9999;
 }
 
+/* POPUP LOGIN */
 .popup-content {
     background: white;
     padding: 25px;
@@ -191,6 +198,7 @@ nav a, nav button {
     cursor: pointer;
 }
 
+/* POPUP DETAIL PRODUK */
 .popup-detail-box {
     background: white;
     width: 380px;
@@ -207,6 +215,7 @@ nav a, nav button {
     margin-bottom: 10px;
 }
 
+/* POPUP KERANJANG */
 .popup-cart-box {
     background: white;
     width: 420px;
@@ -239,33 +248,31 @@ nav a, nav button {
     background: #0b1a41;
     color: white;
     font-size: 18px;
+    cursor: pointer;
+    #contactPopup .popup-content {
+    width: 300px;
+    text-align: center;
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+}
+
+.waLink {
+    display: inline-block;
+    background: #25D366;
+    color: white;
+    padding: 10px 15px;
+    margin: 10px 0;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.closeBtn2 {
+    background: #333;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 6px;
     cursor: pointer;
 }
-
-.logo {
-    font-size: 22px;
-    font-weight: bold;
-    padding-left: 50px; 
-    background-image: url("logo MC.png");
-    background-repeat: no-repeat;
-    background-size: 70px;  
-    background-position: left center;
-    text-shadow: 0 0 6px rgba(255,255,255,0.6);
 }
-
-header nav a, header nav button, .logo {
-    font-weight: 700; 
-    font-size: 18px;
-    letter-spacing: 0.5px;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
-}
-
-nav a:hover, nav button:hover {
-    transform: scale(1.1);
-    transition: 0.2s;
-}
-
-#btnLogin {
-  cursor: pointer;
-}
-

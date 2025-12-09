@@ -1,4 +1,3 @@
-APP.JS
 // ==========================
 // DATA PRODUK
 // ==========================
@@ -61,7 +60,7 @@ const products = {
 
 
   // ======================
-  // PRINTER (sesuai foldermu)
+  // PRINTER 
   // ======================
   printer: [
     { 
@@ -117,17 +116,45 @@ const products = {
       name: "Riso ComColor GD",
       price: 45000000,
       year: 2020,
-      img:"img/percetakan/percetakan1.jpg",
+      img:"img/percetakan/Riso GD.jpg",
       spec:"Mesin Cetak Kecepatan Tinggi • Full Color"
     },
     { 
       name: "Duplo DP-U950",
       price: 25000000,
       year: 2019,
-      img:"img/percetakan/percetakan2.jpg",
+      img:"img/percetakan/Duplo-U950.jpg",
       spec:"Mesin Duplikasi Digital • Volume Besar"
+    },
+    { 
+      name: "Haidelberg Speedmaster CX 102",
+      price: 20000000,
+      year: 2019,
+      img:"img/percetakan/CX 102.jpg",
+      spec:"Offset Sheet-fed • Multi-color"
+    },
+    { 
+      name: "HP Indigo 7R",
+      price: 70000000,
+      year: 2021,
+      img:"img/percetakan/HP Indigo.jpg",
+      spec:"Digital Production Press • Data Variabel"
+    },
+    { 
+      name: "Mesin Sablon Rotari 4 Warna",
+      price: 35000000,
+      year: 2022,
+      img:"img/percetakan/Mesin Sablon.jpg",
+      spec:"Screen Printing • Kaos • Rotari 4W"
+    },
+    { 
+      name: "Mark Andy Digital Series",
+      price: 400000000,
+      year: 2018,
+      img:"img/percetakan/Mark Andy.jpg",
+      spec:"Flexography • Roll-to-Roll"
     }
-  ]
+  ],
 };
 
 
@@ -235,7 +262,7 @@ function tampilkanProduk(data) {
   data.forEach(p => {
     produkList.innerHTML += `
       <div class="produk-card">
-        <img src="${p.img}" class="produk-img" onclick='openDetail(${JSON.stringify(p).replace(/"/g, "&quot;")})'>
+        <img src="${p.img}" class="produk-img" onclick='openDetail(${JSON.stringify(p)})'>
         <h3>${p.name}</h3>
         <p>Harga: Rp ${p.price.toLocaleString()}</p>
         <p>Tahun: ${p.year}</p>
@@ -243,52 +270,6 @@ function tampilkanProduk(data) {
     `;
   });
 }
-
-function tampilkanProduk(data) {
-  produkList.innerHTML = "";
-
-  data.forEach(p => {
-    produkList.innerHTML += `
-      <div class="produk-card">
-        <img src="${p.img}" class="produk-img" onclick='openDetail(${JSON.stringify(p).replace(/"/g, "&quot;")})'>
-        <h3>${p.name}</h3>
-        <p>Harga: Rp ${p.price.toLocaleString()}</p>
-        <p>Tahun: ${p.year}</p>
-      </div>
-    `;
-  });
-}
-function tampilkanProduk(data) {
-  produkList.innerHTML = "";
-
-  data.forEach(p => {
-    produkList.innerHTML += `
-      <div class="produk-card">
-        <img src="${p.img}" class="produk-img" onclick='openDetail(${JSON.stringify(p).replace(/"/g, "&quot;")})'>
-        <h3>${p.name}</h3>
-        <p>Harga: Rp ${p.price.toLocaleString()}</p>
-        <p>Tahun: ${p.year}</p>
-      </div>
-    `;
-  });
-}
-
-function tampilkanProduk(data) {
-  produkList.innerHTML = "";
-
-  data.forEach(p => {
-    produkList.innerHTML += `
-      <div class="produk-card">
-        <img src="${p.img}" class="produk-img" onclick='openDetail(${JSON.stringify(p).replace(/"/g, "&quot;")})'>
-        <h3>${p.name}</h3>
-        <p>Harga: Rp ${p.price.toLocaleString()}</p>
-        <p>Tahun: ${p.year}</p>
-      </div>
-    `;
-  });
-}
-
-
 
 kategoriBtn.forEach(btn => {
   btn.addEventListener("click", () => {
@@ -323,7 +304,16 @@ function openDetail(p) {
     ${p.spec.toLowerCase().includes("wireless") ? "- Bisa print dari HP tanpa kabel.<br>" : ""}
     ${p.spec.toLowerCase().includes("duplex") ? "- Cetak bolak balik otomatis.<br>" : ""}
     ${p.spec.toLowerCase().includes("fax") ? "- Bisa kirim fax langsung dari printer.<br>" : ""}
-  `;
+
+    ${p.spec.toLowerCase().includes("large format") ? "- Cetak ukuran besar seperti poster, banner, blueprint.<br>" : ""}
+    ${p.spec.toLowerCase().includes("precisioncore") ? "- Teknologi cetak sangat presisi dan tajam.<br>" : ""}
+    ${p.spec.toLowerCase().includes("kecepatan tinggi") ? "- Mesin sangat cepat untuk volume besar.<br>" : ""}
+    ${p.spec.toLowerCase().includes("offset") ? "- Cocok untuk cetak massal kualitas tinggi (brosur, majalah).<br>" : ""}
+    ${p.spec.toLowerCase().includes("flexography") ? "- Digunakan untuk cetak kemasan plastik & label roll.<br>" : ""}
+    ${p.spec.toLowerCase().includes("roll-to-roll") ? "- Mencetak di media gulungan panjang tanpa henti.<br>" : ""}
+    ${p.spec.toLowerCase().includes("sablon") ? "- Cocok untuk cetak kaos, kain, dan media tekstil.<br>" : ""}
+    ${p.spec.toLowerCase().includes("rotari") ? "- Bisa cetak kaos banyak sekaligus (putar 4 warna).<br>" : ""}
+    `;
 
   document.getElementById("detailSpec").innerHTML = specText;
   document.getElementById("detailRating").innerText = "Rating: ⭐⭐⭐⭐⭐";
@@ -337,11 +327,18 @@ function openDetail(p) {
 function closeDetail() {
   document.getElementById("popupDetail").style.display = "none";
 }
-
-
 // ==========================
-// LOGIN SYSTEM
+// POPUP CONTACT WA
 // ==========================
+function openContact() {
+    document.getElementById("contactPopup").style.display = "flex";
+}
+
+function closeContact() {
+    document.getElementById("contactPopup").style.display = "none";
+}
+
+// LOGIN SYSTEM (EMAIL VERSION)
 const loginPopup = document.getElementById("loginPopup");
 const btnLogin = document.getElementById("btnLogin");
 const loginSubmit = document.getElementById("loginSubmit");
@@ -366,37 +363,39 @@ registerBtn.onclick = () => {
 };
 
 loginSubmit.onclick = () => {
-  const phone = document.getElementById("loginPhone").value.trim();
+  const email = document.getElementById("loginEmail").value.trim();
   const pass = document.getElementById("loginPass").value.trim();
   const mode = loginSubmit.dataset.mode;
 
-  if (!phone || !pass) {
-    alert("Nomor dan password wajib diisi!");
+  if (!email || !pass) {
+    alert("Email dan password wajib diisi!");
     return;
   }
 
   let users = JSON.parse(localStorage.getItem("users") || "{}");
 
+  // REGISTER
   if (mode === "register") {
-    if (users[phone]) {
-      alert("Nomor ini sudah terdaftar!");
+    if (users[email]) {
+      alert("Email ini sudah terdaftar!");
       return;
     }
 
-    users[phone] = { phone, pass };
+    users[email] = { email, pass };
     localStorage.setItem("users", JSON.stringify(users));
 
     alert("Registrasi berhasil, silakan login.");
     showPopup("login");
   }
 
+  // LOGIN
   if (mode === "login") {
-    if (!users[phone] || users[phone].pass !== pass) {
-      alert("Nomor atau password salah.");
+    if (!users[email] || users[email].pass !== pass) {
+      alert("Email atau password salah.");
       return;
     }
 
-    localStorage.setItem("auth", JSON.stringify({ phone }));
+    localStorage.setItem("auth", JSON.stringify({ email }));
 
     loginPopup.style.display = "none";
     updateLoginUI();
@@ -407,7 +406,7 @@ function updateLoginUI() {
   const auth = JSON.parse(localStorage.getItem("auth"));
 
   if (auth) {
-    btnLogin.innerText = `Logout (${auth.phone})`;
+    btnLogin.innerText = `Logout (${auth.email})`;
     btnLogin.onclick = () => {
       localStorage.removeItem("auth");
       location.reload();
@@ -416,6 +415,13 @@ function updateLoginUI() {
     btnLogin.innerText = "Login";
     btnLogin.onclick = () => showPopup("login");
   }
+}
+function openContact() {
+    document.getElementById("contactPopup").style.display = "flex";
+}
+
+function closeContact() {
+    document.getElementById("contactPopup").style.display = "none";
 }
 
 updateLoginUI();
