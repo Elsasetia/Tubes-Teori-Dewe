@@ -116,7 +116,7 @@ const products = {
       name: "Riso ComColor GD",
       price: 45000000,
       year: 2020,
-      img:"img/percetakan/Riso GD.jpg",
+      img:"img/Mesin percetakan/gd-series-9630-lg.jpg",
       spec:"Mesin Cetak Kecepatan Tinggi • Full Color"
     },
     { 
@@ -137,7 +137,7 @@ const products = {
       name: "HP Indigo 7R",
       price: 70000000,
       year: 2021,
-      img:"img/percetakan/HP Indigo.jpg",
+      img:"img/Mesin percetakan/HP Indigo 7R.jpg",
       spec:"Digital Production Press • Data Variabel"
     },
     { 
@@ -439,3 +439,62 @@ function changeSlide(n) {
 setInterval(() => changeSlide(1), 4000);
 
 updateLoginUI();
+
+// ==========================
+// CHECKOUT & PEMBAYARAN
+// ==========================
+
+// Tambahkan tombol checkout ke popup cart (TANPA UBAH HTML ASLI)
+const cartPopupBox = document.querySelector(".popup-cart-box");
+const checkoutBtn = document.createElement("button");
+checkoutBtn.innerText = "Checkout";
+checkoutBtn.onclick = openCheckout;
+cartPopupBox.appendChild(checkoutBtn);
+
+function openCheckout() {
+  if (cartItems.length === 0) {
+    alert("Keranjang masih kosong!");
+    return;
+  }
+
+  document.getElementById("checkoutPopup").style.display = "flex";
+
+  let total = cartItems.reduce((sum, i) => sum + i.price * i.qty, 0);
+  document.getElementById("checkoutTotal").innerText =
+    "Total: Rp " + total.toLocaleString();
+}
+
+function closeCheckout() {
+  document.getElementById("checkoutPopup").style.display = "none";
+}
+
+function processPayment() {
+  const name = document.getElementById("custName").value.trim();
+  const phone = document.getElementById("custPhone").value.trim();
+  const address = document.getElementById("custAddress").value.trim();
+  const payment = document.getElementById("paymentMethod").value;
+
+  if (!name || !phone || !address || !payment) {
+    alert("Lengkapi data checkout!");
+    return;
+  }
+
+  const order = {
+    customer: { name, phone, address },
+    payment,
+    items: cartItems,
+    date: new Date().toLocaleString()
+  };
+
+  let orders = JSON.parse(localStorage.getItem("orders") || "[]");
+  orders.push(order);
+  localStorage.setItem("orders", JSON.stringify(orders));
+
+  alert("Pembayaran berhasil!\nPesanan sedang diproses.");
+
+  // RESET
+  cartItems = [];
+  renderCart();
+  closeCheckout();
+  closeCart();
+}

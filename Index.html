@@ -13,12 +13,6 @@
         <img src="logo.jpg" class="logo-img">
     </div>
     <nav>
-        <a href="#">Home</a>
-        <a href="#produk">Produk</a>
-        <a href="#about">About</a>
-
-        <!-- Contact popup trigger -->
-        <a href="javascript:void(0)" onclick="openContact()">Contact</a>
 
         <button id="btnLogin">Login</button>
         <button id="btnCart" class="cartBtn" onclick="openCart()">🛒 <span id="cartCount">0</span></button>
@@ -52,7 +46,6 @@
 
     <!-- PRODUK LIST -->
     <section id="produk" class="produk">
-        <h2>Daftar Produk</h2>
         <div class="produk-wrapper">
             <div id="produkList" class="produk-container"></div>
         </div>
@@ -144,6 +137,29 @@
     <footer>
         <p>© 2025 Mitra Copierindo. All Rights Reserved.</p>
     </footer>
+
+    <!-- POPUP CHECKOUT -->
+<div id="checkoutPopup" class="popup">
+  <div class="popup-cart-box">
+    <h2>Checkout</h2>
+
+    <input id="custName" type="text" placeholder="Nama Lengkap">
+    <input id="custPhone" type="text" placeholder="No WhatsApp">
+    <textarea id="custAddress" placeholder="Alamat Lengkap"></textarea>
+
+    <select id="paymentMethod">
+      <option value="">-- Pilih Metode Pembayaran --</option>
+      <option value="Transfer Bank">Transfer Bank</option>
+      <option value="E-Wallet">E-Wallet</option>
+      <option value="COD">COD</option>
+    </select>
+
+    <h3 id="checkoutTotal">Total: Rp 0</h3>
+
+    <button onclick="processPayment()">Bayar Sekarang</button>
+    <button onclick="closeCheckout()">Batal</button>
+  </div>
+</div>
 
 </body>
 </html>
